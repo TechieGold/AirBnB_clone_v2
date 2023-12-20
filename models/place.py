@@ -57,3 +57,25 @@ class Place(BaseModel, Base):
         """ Constructor of the class Place"""
         super().__init__(*args, **kwargs)
 
+    if models.storage_t != 'db':
+        @property
+        def reviews(self):
+            """A custom getter method in defined to return given list"""
+            from models.review import Review
+            stack_review_obj = []
+            total_stack_obj = models.storage.all(Review)
+            for obj in total_stack_obj.values():
+                if obj.place_id == self.id:
+                    stack_review_obj.append(obj)
+            return stack_review_obj
+
+        @property
+        def amenities(self):
+            """A custom getter method in defined to return given list"""
+            from models.amenity import Amenity
+            stack_amn_obj = []
+            total_returned_obj = models.storage.all(Amenity)
+            for obj in total_returned_obj.values():
+                if obj.place_id == self.id:
+                    stack_amn_obj.append(obj)
+            return stack_amn_obj
