@@ -12,7 +12,7 @@ from models.city import City
 
 class State(BaseModel, Base):
     """ Initialised class name State """
-    if models.storage_t == "db":
+    if models.if_database == "db":
         __tablename__ = 'states'
         name = Column(String(128), nullable=False)
         cities = relationship("City", backref="state")
@@ -23,7 +23,7 @@ class State(BaseModel, Base):
         """Constructor that inherits from super class"""
         super().__init__(*args, **kwargs)
 
-    if models.storage_t != "db":
+    if models.if_database != "db":
         @property
         def cities(self):
             """A custom getter method for cities"""

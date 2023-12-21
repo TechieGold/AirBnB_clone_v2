@@ -14,7 +14,7 @@ from os import getenv
 
 time_utc_format = "%Y-%m-%dT%H:%M:%S.%f"
 
-if models.storage_t == "db":
+if models.if_database == "db":
     Base = declarative_base()
 else:
     Base = object
@@ -25,7 +25,7 @@ class BaseModel:
         A module that determines the id and time of which all objects are
         created and modified.
     """
-    if models.storage_t == "db":
+    if models.if_database == "db":
         id = Column(String(60), primary_key=True)
         created_at = Column(DateTime, default=datetime.utcnow)
         updated_at = Column(DateTime, default=datetime.utcnow)

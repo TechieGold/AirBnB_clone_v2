@@ -8,7 +8,7 @@ from os import getenv
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from models.base_model import BaseModel, Base
 
-if models.storage_t == 'db':
+if models.if_database == 'db':
     place_amenity = Table('place_amenity', Base.metadata,
                           Column('place_id', String(60),
                                  ForeignKey('places.id', onupdate='CASCADE',
@@ -23,7 +23,7 @@ if models.storage_t == 'db':
 class Place(BaseModel, Base):
     """ A class named Place that defines all give column records below """
 
-    if models.storage_t == 'db':
+    if models.if_database == 'db':
         __tablename__ = 'places'
         city_id = Column(String(60), ForeignKey('cities.id'), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)
@@ -57,7 +57,7 @@ class Place(BaseModel, Base):
         """ Constructor of the class Place"""
         super().__init__(*args, **kwargs)
 
-    if models.storage_t != 'db':
+    if models.if_database != 'db':
         @property
         def reviews(self):
             """A custom getter method in defined to return given list"""

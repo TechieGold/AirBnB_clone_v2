@@ -11,7 +11,7 @@ from models.base_model import BaseModel, Base
 
 class User(BaseModel, Base):
     """ A class inheriting from base model """
-    if models.storage_t == 'db':
+    if models.if_database == 'db':
         __tablename__ = 'users'
         email = Column(String(128), nullable=False)
         password = Column(String(128), nullable=False)

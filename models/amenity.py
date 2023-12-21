@@ -15,7 +15,7 @@ class Amenity(BaseModel, Base):
         of the amenity in the database class attribute
         for json storage. 
     """
-    if models.storage_t == 'db':
+    if models.if_database == 'db':
         __tablename__ = 'amenities'
         name = Column(String(128), nullable=False)
     else:

@@ -10,7 +10,7 @@ import models
 
 class Review(BaseModel, Base):
     """ Initialised class named Review """
-    if models.storage_t == 'db':
+    if models.if_database == 'db':
         __tablename__ = 'reviews'
         place_id = Column(String(60), ForeignKey('places.id'), nullable=False)
         user_id = Column(String(60), ForeignKey('users.id'), nullable=False)

@@ -13,7 +13,7 @@ class City(BaseModel, Base):
     """ A class that creates column records that of state_id, name and place
         in the cities table
     """
-    if models.storage_t == "db":
+    if models.if_database == "db":
         __tablename__ = 'cities'
         state_id = Column(String(60), ForeignKey('states.id'), nullable=False)
         name = Column(String(128), nullable=False)
