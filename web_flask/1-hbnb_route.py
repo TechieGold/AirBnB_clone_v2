@@ -7,13 +7,13 @@ from flask import Flask
 app = Flask(__name__)
 
 
-# Routes that displays Hello HBNB!
+# Route that display Hello HBNB!
 @app.route('/', strict_slashes=False)
 def hello():
     return 'Hello HBNB!'
 
 
-# Routes that displays HBNB
+# Route that display HBNB
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     return 'HBNB'
