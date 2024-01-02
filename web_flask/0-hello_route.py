@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-""" This script starts a flask application listening on 0.0.0.0 port 500 """
+"""
+This script starts a Flask web application.
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    / - display Hello HBNB!.
+"""
 
 from flask import Flask
 app = Flask(__name__)

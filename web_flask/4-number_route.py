@@ -1,7 +1,13 @@
 #!/usr/bin/python3
 """
-This script starts a web application containing three routes
-all listening on 0.0.0.0 port=5000
+This script starts a Flask web application.
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    / - display Hello HBNB!.
+    /hbnb - display HBNB.
+    /c/<text> - display C followed by the value of text variable.
+    /python - display Python followed by the value of text variable.
+    /number/<int:n> - display “n is a number” only if n is an integer.
 """
 from flask import Flask
 app = Flask(__name__)

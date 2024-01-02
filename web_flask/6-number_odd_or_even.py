@@ -1,19 +1,27 @@
 #!/usr/bin/python3
 """
-This script starts a web application with routes
-all listening on 0.0.0.0 port=5000
+This script starts a Flask web application.
+The application listens on 0.0.0.0, port 5000.
+Routes:
+    / - display Hello HBNB!.
+    /hbnb - display HBNB.
+    /c/<text> - display C followed by the value of text variable.
+    /python - display Python followed by the value of text variable.
+    /number/<int:n> - display “n is a number” only if n is an integer.
+    /number_template/<int:n> - display a HTML page only if n is an integer.
+    /number_odd_or_even/<int:n> - display a HTML page only if n is an integer.
 """
 from flask import Flask, render_template
 app = Flask(__name__)
 
 
-# Route that displays Hello HBNB!
+# Route that display Hello HBNB!
 @app.route('/', strict_slashes=False)
 def hello():
     return 'Hello HBNB!'
 
 
-# Route that displays HBNB
+# Route that display HBNB
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
     return 'HBNB'
@@ -54,3 +62,4 @@ def is_even_or_ood(n):
 # Run the Flask application if this file is executed directly
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
